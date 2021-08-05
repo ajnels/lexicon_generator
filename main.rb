@@ -21,7 +21,7 @@ while true
 
   case user_input
     when 'p'
-      word_generator.show
+      puts word_generator
     when 's'
       puts 'Syllable structure'
     when 'g'

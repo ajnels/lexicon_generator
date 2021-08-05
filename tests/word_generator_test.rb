@@ -10,4 +10,12 @@ class WordGeneratorTest < Test::Unit::TestCase
 
     assert_equal('rharhrh', cleaned_word)
   end
+
+  def test_remove_trailing_char
+    word = 'asdf\''
+    word_gen = WordGenerator.new([], [], [], [], [])
+    cleaned_word = word_gen.remove_trailing_char(word)
+
+    assert_equal('asdf', cleaned_word)
+  end
 end

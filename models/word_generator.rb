@@ -22,9 +22,24 @@ class WordGenerator
         word += selected_coda if rand <= 0.5
 
       end
-      words << word
+      words << cleanup(word)
     end
     return words
+  end
+
+  def cleanup(word)
+    word = remove_trailing_char(word)
+    remove_forbidden_constant_clusters(word)
+  end
+
+  def remove_trailing_char(word)
+    forbidden_trailing_chars = ['\'']
+    forbidden_trailing_chars.each do |trailing_char|
+      if word.end_with?(trailing_char)
+        word.slice!(word.length - trailing_char.length .. word.length)
+      end
+    end
+    return word
   end
 
   #Remove constant clusters that aren't allowed. Can use regex and special key-letters for extended behavior
@@ -43,11 +58,11 @@ class WordGenerator
     return word
   end
 
-  def show
-    print "The Constants: #{@constants.join(', ')} \n"
-    print "The Vowels: #{@vowels.join(', ')} \n"
-    print "The Onsets: #{@onset.join(', ')} \n"
-    print "The Nucleus: #{@nucleus.join(', ')} \n"
-    print "The Codas: #{@coda.join(', ')} \n"
+  def to_s
+    "The Constants: #{@constants.join(', ')} \n" +
+    "The Vowels: #{@vowels.join(', ')} \n" +
+    "The Onsets: #{@onset.join(', ')} \n" +
+    "The Nucleus: #{@nucleus.join(', ')} \n" +
+    "The Codas: #{@coda.join(', ')} \n"
   end
 end
