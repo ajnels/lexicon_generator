@@ -14,14 +14,13 @@ def open_prompt
 end
 
 #the opening of the program
-word_generator = Object
+constants, vowels, onset, nucleus, coda = PhonologyReader::read_file
+word_generator = WordGenerator.new(constants, vowels, onset, nucleus, coda)
 while true
   user_input = open_prompt
 
   case user_input
     when 'p'
-      constants, vowels, onset, nucleus, coda = PhonologyReader::read_file
-      word_generator = WordGenerator.new(constants, vowels, onset, nucleus, coda)
       word_generator.show
     when 's'
       puts 'Syllable structure'
