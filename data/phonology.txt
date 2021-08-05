@@ -2,4 +2,4 @@ m, n, p, t, k, ', f, v, z, h, w, l, r, rh
 i, i:, u, u:, o, o:, a, a:
 m, n, p, t, f, v, z, w, r, rh
 i, i:, u, u:, o, o:, a, a:
-m, n, p, t, k, v, z, h, l, r
+m, p, k, v, z, h, l, r, '
